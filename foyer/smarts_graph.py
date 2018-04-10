@@ -199,7 +199,8 @@ class SMARTSGraph(nx.Graph):
             # different order.
             if atom_index not in matched_atoms:
                 matched_atoms.add(atom_index)
-                yield atom_index
+                #print(mapping)
+                yield atom_index, mapping
 
 
 class SMARTSMatcher(isomorphism.vf2userfunc.GraphMatcher):

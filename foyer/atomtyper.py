@@ -78,9 +78,11 @@ def _iterate_rules(rules, topology, max_iter):
         max_iter -= 1
         found_something = False
         for rule in rules.values():
-            for match_index in rule.find_matches(topology):
+            for match_index, mapping  in rule.find_matches(topology):
                 atom = atoms[match_index]
                 if rule.name not in atom.whitelist:
+                    #print(rule.name, atom.index, mapping)
+                    atom.mapping = mapping
                     atom.whitelist.add(rule.name)
                     atom.blacklist |= rule.overrides
                     found_something = True
@@ -102,3 +104,5 @@ def _resolve_atomtypes(topology):
         else:
             raise FoyerError("Found no types for atom {} ({}).".format(
                 atom.index, atom.element.name))
+
+        print(atomtype, atom.index, atom.mapping)
