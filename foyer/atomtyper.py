@@ -105,4 +105,4 @@ def _resolve_atomtypes(topology):
             raise FoyerError("Found no types for atom {} ({}).".format(
                 atom.index, atom.element.name))
 
-        print(atomtype, atom.index, atom.mapping)
+        print(atom.index, atomtype, atom.mapping)
