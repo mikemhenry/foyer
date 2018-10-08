@@ -341,7 +341,7 @@ class Forcefield(app.ForceField):
             self.atomTypeRefs[name] = dois
 
     def apply(self, topology, references_file=None, use_residue_map=True,
-              assert_angle_params=True, assert_dihedral_params=True,
+              assert_angle_params=True, assert_dihedral_params=False,
               assert_improper_params=False, *args, **kwargs):
         """Apply the force field to a molecular structure
 
